@@ -1,4 +1,7 @@
 package Logic;
+import Ekstra.CalendarTest;
+import Ekstra.data;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -12,7 +15,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import TCPClient.TCPClient;
-import sun.applet.Main;
 import GUI.Screen;
 import JsonClasses.CreateCalender;
 import JsonClasses.Login;
@@ -20,8 +22,9 @@ import JsonClasses.LoginAnswer;
 import JsonClasses.DeleteCalendar;
 import JsonClasses.ServerData;
 import JsonClasses.DailyUpdate;
-import JsonClasses.UpdateLoginTime;
 import JsonClasses.Update;
+import JsonClasses.GetCbsCalendar;
+import Ekstra.*;
 
 public class Logic {
 	private Screen screen;
@@ -30,14 +33,15 @@ public class Logic {
 	Login L = new Login();
 	DeleteCalendar DC = new DeleteCalendar();
 	ServerData SD = new ServerData();
-	UpdateLoginTime ULT = new UpdateLoginTime();
 	Update UD = new Update();
+	GetCbsCalendar GCBS = new GetCbsCalendar();
+	
+	
 	
 	
 
 	public Logic(){
 		screen = new Screen();
-
 
 		screen.getLogin().addActionListener(new LoginActionListener());
 		screen.getMainMenu().addActionListener(new MainMenuActionListener());
@@ -64,44 +68,71 @@ public class Logic {
 				Date date = new Date();
 				long date1 = date.getTime();
 				
-				ULT.setLoginTime(date1);
-				ULT.setUserName("1234");
-				String JsonString2 = tcp.bla(ULT);
 				
-				UD.setUserName("1234");
-				String JsonString3 = tcp.bla(UD);
+//				SD.setOverallID("DailyUpdate");
+//				String JsonString2 = tcp.bla(SD);
+//				DailyUpdate DU = gson.fromJson(JsonString2, DailyUpdate.class);
+//				System.out.println("client DailyUpdate Date: "+DU.getDate());
+//				System.out.println("client DailyUpdate ApparentTemperature: "+DU.getApparentTemperature());
+//				System.out.println("client DailyUpdate Summary: "+DU.getSummary());
+//				System.out.println("client DailyUpdate qotd: "+DU.getQotd());
+//				System.out.println("client DailyUpdate author: "+DU.getAuthor());
+//				System.out.println("client DailyUpdate topic: "+DU.getTopic());
 				
-				SD.setOverallID("getQuote");
-				try {
-					String JsonString = tcp.bla(SD);
-					DailyUpdate DU = gson.fromJson(JsonString, DailyUpdate.class); 
 				
-					
-				} catch (UnknownHostException e1) {
-					e1.printStackTrace();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
-
-				String email = screen.getLogin().getUsernameTextField().getText();
-				String password = screen.getLogin().getPasswordTextField_1().getText();
 				
-				L.setEmail(email);
-				L.setPassword(password);
+				String JsonString3 = tcp.bla(GCBS);
+				System.out.println(JsonString3);
+				
+//				System.out.println(JsonString3);
+				
+//				Events events = gson.fromJson(JsonString3, Events.class);
+//				0 = år, 1 = måned, 2 = dag, 3 = timer, 4 = minutter
+//				String day =(events.getEvents().get(0).getStart().get(2));
+//				String month =(events.getEvents().get(0).getStart().get(1));
+//				String year =(events.getEvents().get(0).getStart().get(0));
+//				String dato = day+"-"+month+"-"+year;
+//				System.out.println(dato);
 
-				String JsonString=tcp.bla(L);
+				System.out.println("hø");
+				
+				data d = new data();  
+				new CalendarTest().run(d.calculateNewDate(),JsonString3);
+				
+				
+				
+				 
+//				SD.setOverallID("getQuote");
+//				try {
+//					String JsonString = tcp.bla(SD);
+//					DailyUpdate DU = gson.fromJson(JsonString, DailyUpdate.class); 
+//				
+//					
+//				} catch (UnknownHostException e1) {
+//					e1.printStackTrace();
+//				} catch (IOException e1) {
+//					e1.printStackTrace();
+//				} catch (SQLException e1) {
+//					e1.printStackTrace();
+//				}
 
-				LoginAnswer LA = gson.fromJson(JsonString, LoginAnswer.class);  
-
-				if (LA.getAnswer().equals("correct")){
-					screen.show(Screen.MAINMENU);
-				}
-				if(!LA.getAnswer().equals("correct")){
-					JOptionPane.showMessageDialog(null, "\nPlease enter a valid username & password."
-							, "Error message",JOptionPane.PLAIN_MESSAGE);
-				}
+//				String email = screen.getLogin().getUsernameTextField().getText();
+//				String password = screen.getLogin().getPasswordTextField_1().getText();
+//				
+//				L.setEmail(email);
+//				L.setPassword(password);
+//
+//				String JsonString=tcp.bla(L);
+//
+//				LoginAnswer LA = gson.fromJson(JsonString, LoginAnswer.class);  
+//
+//				if (LA.getAnswer().equals("correct")){
+//					screen.show(Screen.MAINMENU);
+//				}
+//				if(!LA.getAnswer().equals("correct")){
+//					JOptionPane.showMessageDialog(null, "\nPlease enter a valid username & password."
+//							, "Error message",JOptionPane.PLAIN_MESSAGE);
+//				}
 			}	
 			catch(Exception e3){
 			}
@@ -199,7 +230,6 @@ public class Logic {
 					JOptionPane.showMessageDialog(null, "Please select whether your database is a public or a private database"
 							, "Error message",JOptionPane.PLAIN_MESSAGE);
 
-
 				}
 				
 				if (empty == false && PrivateOrPublic == true){
@@ -224,18 +254,9 @@ public class Logic {
 					
 				}
 				
-				
-
-
-
-
 			}
 		}
-
 
 	}
 
 }
-
-
-
