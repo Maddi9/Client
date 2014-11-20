@@ -132,6 +132,7 @@ public class CalendarProgram{
         for (int i=0; i<6; i++){
             for (int j=0; j<7; j++){
                 mtblCalendar.setValueAt(null, i, j);
+                
             }
         }
         
@@ -201,6 +202,7 @@ public class CalendarProgram{
                 String b = cmbYear.getSelectedItem().toString();
                 currentYear = Integer.parseInt(b);
                 refreshCalendar(currentMonth, currentYear);
+                
             }
         }
     }
