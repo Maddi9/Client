@@ -46,6 +46,10 @@ public class CalendarTest{
     private static JLabel label_13;
     data d = new data();
     String [] headers = new String[7];
+    private final JLabel label_14 = new JLabel("");
+    /**
+     * @wbp.parser.entryPoint
+     */
     public void run (long newDate, String JsonString3){
     	
     	d.setJsonString(JsonString3);
@@ -61,8 +65,8 @@ public class CalendarTest{
        
         
         //Prepare frame
-        frmMain = new JFrame ("Gestionnaire de clients"); //Create frame
-        frmMain.setSize(760, 550); //Set size to 400x400 pixels
+        frmMain = new JFrame ("DØK Calendar"); //Create frame
+        frmMain.setSize(1366, 768); //Set size to 400x400 pixels
         pane = frmMain.getContentPane(); //Get content pane
         pane.setLayout(null); //Apply null layout
         frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Close when X is clicked
@@ -96,14 +100,14 @@ public class CalendarTest{
         pnlCalendar.add(btnPrev);
         btnPrev.setBounds(60, 25, 80, 25);
         pnlCalendar.add(btnNext);
-        btnNext.setBounds(628, 25, 94, 25);
+        btnNext.setBounds(1244, 25, 94, 25);
         pnlCalendar.add(stblCalendar);
         
         //Set bounds
-        pnlCalendar.setBounds(0, 0, 737, 510);
-        lblYear.setBounds(60, 479, 80, 20);
-        cmbYear.setBounds(222, 479, 80, 20);
-        stblCalendar.setBounds(60, 91, 662, 377);
+        pnlCalendar.setBounds(0, 0, 1360, 739);
+        lblYear.setBounds(57, 708, 80, 20);
+        cmbYear.setBounds(219, 708, 80, 20);
+        stblCalendar.setBounds(60, 91, 1290, 613);
         
         //Make frame visible
         frmMain.setResizable(false);
@@ -142,27 +146,27 @@ public class CalendarTest{
         pnlCalendar.add(lblMonday);
         
         lblTuesday = new JLabel("Tuesday");
-        lblTuesday.setBounds(183, 66, 41, 14);
+        lblTuesday.setBounds(300, 66, 41, 14);
         pnlCalendar.add(lblTuesday);
         
         lblWenseday = new JLabel("Wednseday");
-        lblWenseday.setBounds(268, 66, 57, 14);
+        lblWenseday.setBounds(503, 66, 57, 14);
         pnlCalendar.add(lblWenseday);
         
         lblThuesday = new JLabel("Thursday");
-        lblThuesday.setBounds(370, 66, 45, 14);
+        lblThuesday.setBounds(700, 66, 45, 14);
         pnlCalendar.add(lblThuesday);
         
         lblFriday = new JLabel("Friday");
-        lblFriday.setBounds(470, 66, 30, 14);
+        lblFriday.setBounds(912, 66, 30, 14);
         pnlCalendar.add(lblFriday);
         
         lblSaturday = new JLabel("Saturday");
-        lblSaturday.setBounds(559, 66, 44, 14);
+        lblSaturday.setBounds(1071, 66, 44, 14);
         pnlCalendar.add(lblSaturday);
         
         lblSunday = new JLabel("Sunday");
-        lblSunday.setBounds(653, 66, 36, 14);
+        lblSunday.setBounds(1281, 66, 36, 14);
         pnlCalendar.add(lblSunday);
         
         label = new JLabel("8:00");
@@ -170,56 +174,60 @@ public class CalendarTest{
         pnlCalendar.add(label);
         
         label_1 = new JLabel("9:00");
-        label_1.setBounds(28, 143, 22, 14);
+        label_1.setBounds(28, 162, 22, 14);
         pnlCalendar.add(label_1);
         
         label_2 = new JLabel("10:00");
-        label_2.setBounds(22, 168, 28, 14);
+        label_2.setBounds(22, 198, 28, 14);
         pnlCalendar.add(label_2);
         
         label_3 = new JLabel("11:00");
-        label_3.setBounds(22, 193, 28, 14);
+        label_3.setBounds(22, 235, 28, 14);
         pnlCalendar.add(label_3);
         
         label_4 = new JLabel("12:00");
-        label_4.setBounds(22, 218, 28, 14);
+        label_4.setBounds(22, 272, 28, 14);
         pnlCalendar.add(label_4);
         
         label_5 = new JLabel("13:00");
-        label_5.setBounds(22, 243, 28, 14);
+        label_5.setBounds(22, 317, 28, 14);
         pnlCalendar.add(label_5);
         
         label_6 = new JLabel("14:00");
-        label_6.setBounds(22, 268, 28, 14);
+        label_6.setBounds(22, 355, 28, 14);
         pnlCalendar.add(label_6);
         
         label_7 = new JLabel("15:00");
-        label_7.setBounds(22, 293, 28, 14);
+        label_7.setBounds(22, 400, 28, 14);
         pnlCalendar.add(label_7);
         
         label_8 = new JLabel("16:00");
-        label_8.setBounds(22, 318, 28, 14);
+        label_8.setBounds(22, 448, 28, 14);
         pnlCalendar.add(label_8);
         
         label_9 = new JLabel("17:00");
-        label_9.setBounds(22, 343, 28, 14);
+        label_9.setBounds(22, 495, 28, 14);
         pnlCalendar.add(label_9);
         
         label_10 = new JLabel("18:00");
-        label_10.setBounds(22, 368, 28, 14);
+        label_10.setBounds(22, 546, 28, 14);
         pnlCalendar.add(label_10);
         
         label_11 = new JLabel("19:00");
-        label_11.setBounds(22, 393, 28, 14);
+        label_11.setBounds(22, 587, 28, 14);
         pnlCalendar.add(label_11);
         
         label_12 = new JLabel("20:00");
-        label_12.setBounds(22, 418, 28, 14);
+        label_12.setBounds(22, 631, 28, 14);
         pnlCalendar.add(label_12);
         
         label_13 = new JLabel("21:00");
-        label_13.setBounds(22, 443, 28, 14);
+        label_13.setBounds(22, 676, 28, 14);
         pnlCalendar.add(label_13);
+        label_14.setIcon(new ImageIcon(CalendarTest.class.getResource("/Images/MetalBackground.jpg")));
+        label_14.setBounds(0, 0, 1360, 739);
+        
+        pnlCalendar.add(label_14);
         mtblCalendar.setColumnCount(7);
         mtblCalendar.setRowCount(14);
       
@@ -447,5 +455,4 @@ public class CalendarTest{
             }
         }
     }
-    
 }
