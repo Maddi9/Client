@@ -10,11 +10,13 @@ import java.awt.*;
 import java.awt.event.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.BevelBorder;
 
 public class CalendarTest{
 	
     static JLabel lblMonth, lblYear;
-    static JButton btnPrev, btnNext;
+    static JButton btnPrev_1, btnNext_1;
     static JTable tblCalendar;
     static JComboBox cmbYear;
     static JFrame frmMain;
@@ -47,6 +49,8 @@ public class CalendarTest{
     data d = new data();
     String [] headers = new String[7];
     private final JLabel label_14 = new JLabel("");
+//    private final JButton btnPrev_1 = new JButton("Prev");
+//    private final JButton btnNext_1 = new JButton("Next");
     /**
      * @wbp.parser.entryPoint
      */
@@ -71,6 +75,7 @@ public class CalendarTest{
         pane.setLayout(null); //Apply null layout
         frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Close when X is clicked
         lblYear = new JLabel ("Change year:");
+        lblYear.setForeground(Color.WHITE);
         cmbYear = new JComboBox();
         mtblCalendar = new DefaultTableModel(){public boolean isCellEditable(int rowIndex, int mColIndex){return false;}};
         tblCalendar = new JTable(mtblCalendar);
@@ -91,16 +96,20 @@ public class CalendarTest{
         lblMonth.setBounds(160, 25, 405, 25);
         pnlCalendar.add(lblYear);
         pnlCalendar.add(cmbYear);
-        btnNext = new JButton ("Next");
-        btnNext.addActionListener(new btnNext_Action());
-        btnPrev = new JButton ("Prev");
+        btnNext_1 = new JButton ("Next");
+        btnNext_1.setForeground(Color.BLACK);
+        btnNext_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+        btnNext_1.addActionListener(new btnNext_Action());
+        btnPrev_1 = new JButton ("Prev");
+        btnPrev_1.setForeground(Color.BLACK);
+        btnPrev_1.setFont(new Font("Tahoma", Font.BOLD, 12));
         
         //Register action listeners
-        btnPrev.addActionListener(new btnPrev_Action());
-        pnlCalendar.add(btnPrev);
-        btnPrev.setBounds(60, 25, 80, 25);
-        pnlCalendar.add(btnNext);
-        btnNext.setBounds(1244, 25, 94, 25);
+        btnPrev_1.addActionListener(new btnPrev_Action());
+        pnlCalendar.add(btnPrev_1);
+        btnPrev_1.setBounds(60, 25, 80, 25);
+        pnlCalendar.add(btnNext_1);
+        btnNext_1.setBounds(1160, 11, 94, 25);
         pnlCalendar.add(stblCalendar);
         
         //Set bounds
@@ -142,88 +151,125 @@ public class CalendarTest{
         tblCalendar.setRowHeight(38);
         
         lblMonday = new JLabel("Monday");
+        lblMonday.setForeground(Color.WHITE);
         lblMonday.setBounds(90, 66, 38, 14);
         pnlCalendar.add(lblMonday);
         
         lblTuesday = new JLabel("Tuesday");
+        lblTuesday.setForeground(Color.WHITE);
         lblTuesday.setBounds(300, 66, 41, 14);
         pnlCalendar.add(lblTuesday);
         
         lblWenseday = new JLabel("Wednseday");
+        lblWenseday.setForeground(Color.WHITE);
         lblWenseday.setBounds(503, 66, 57, 14);
         pnlCalendar.add(lblWenseday);
         
         lblThuesday = new JLabel("Thursday");
+        lblThuesday.setForeground(Color.WHITE);
         lblThuesday.setBounds(700, 66, 45, 14);
         pnlCalendar.add(lblThuesday);
         
         lblFriday = new JLabel("Friday");
+        lblFriday.setForeground(Color.WHITE);
         lblFriday.setBounds(912, 66, 30, 14);
         pnlCalendar.add(lblFriday);
         
         lblSaturday = new JLabel("Saturday");
+        lblSaturday.setForeground(Color.WHITE);
         lblSaturday.setBounds(1071, 66, 44, 14);
         pnlCalendar.add(lblSaturday);
         
         lblSunday = new JLabel("Sunday");
+        lblSunday.setForeground(Color.WHITE);
         lblSunday.setBounds(1281, 66, 36, 14);
         pnlCalendar.add(lblSunday);
         
         label = new JLabel("8:00");
+        label.setForeground(Color.WHITE);
         label.setBounds(28, 118, 22, 14);
         pnlCalendar.add(label);
         
         label_1 = new JLabel("9:00");
+        label_1.setForeground(Color.WHITE);
         label_1.setBounds(28, 162, 22, 14);
         pnlCalendar.add(label_1);
         
         label_2 = new JLabel("10:00");
+        label_2.setForeground(Color.WHITE);
         label_2.setBounds(22, 198, 28, 14);
         pnlCalendar.add(label_2);
         
         label_3 = new JLabel("11:00");
+        label_3.setForeground(Color.WHITE);
         label_3.setBounds(22, 235, 28, 14);
         pnlCalendar.add(label_3);
         
         label_4 = new JLabel("12:00");
+        label_4.setForeground(Color.WHITE);
         label_4.setBounds(22, 272, 28, 14);
         pnlCalendar.add(label_4);
         
         label_5 = new JLabel("13:00");
+        label_5.setForeground(Color.WHITE);
         label_5.setBounds(22, 317, 28, 14);
         pnlCalendar.add(label_5);
         
         label_6 = new JLabel("14:00");
+        label_6.setForeground(Color.WHITE);
         label_6.setBounds(22, 355, 28, 14);
         pnlCalendar.add(label_6);
         
         label_7 = new JLabel("15:00");
+        label_7.setForeground(Color.WHITE);
         label_7.setBounds(22, 400, 28, 14);
         pnlCalendar.add(label_7);
         
         label_8 = new JLabel("16:00");
+        label_8.setForeground(Color.WHITE);
         label_8.setBounds(22, 448, 28, 14);
         pnlCalendar.add(label_8);
         
         label_9 = new JLabel("17:00");
+        label_9.setForeground(Color.WHITE);
         label_9.setBounds(22, 495, 28, 14);
         pnlCalendar.add(label_9);
         
         label_10 = new JLabel("18:00");
+        label_10.setForeground(Color.WHITE);
         label_10.setBounds(22, 546, 28, 14);
         pnlCalendar.add(label_10);
         
         label_11 = new JLabel("19:00");
+        label_11.setForeground(Color.WHITE);
         label_11.setBounds(22, 587, 28, 14);
         pnlCalendar.add(label_11);
         
         label_12 = new JLabel("20:00");
+        label_12.setForeground(Color.WHITE);
         label_12.setBounds(22, 631, 28, 14);
         pnlCalendar.add(label_12);
         
         label_13 = new JLabel("21:00");
+        label_13.setForeground(Color.WHITE);
         label_13.setBounds(22, 676, 28, 14);
         pnlCalendar.add(label_13);
+        btnPrev_1.setForeground(Color.WHITE);
+        btnPrev_1.setFont(new Font("Arial", Font.BOLD, 30));
+        btnPrev_1.setContentAreaFilled(false);
+        btnPrev_1.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+        btnPrev_1.setBackground(Color.WHITE);
+        btnPrev_1.setBounds(154, 11, 145, 50);
+        
+        pnlCalendar.add(btnPrev_1);
+        btnNext_1.setForeground(Color.WHITE);
+        btnNext_1.setFont(new Font("Arial", Font.BOLD, 30));
+        btnNext_1.setContentAreaFilled(false);
+        btnNext_1.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+        btnNext_1.setBackground(Color.WHITE);
+        btnNext_1.setBounds(1089, 6, 145, 50);
+        
+        pnlCalendar.add(btnNext_1);
         label_14.setIcon(new ImageIcon(CalendarTest.class.getResource("/Images/MetalBackground.jpg")));
         label_14.setBounds(0, 0, 1360, 739);
         
@@ -246,13 +292,10 @@ public class CalendarTest{
     		for(int a =0; a<weeks.length; a++){
     			weeks [a] = "Week "+ Integer.toString(a);
     		}
-        int nod, som; //Number Of Days, Start Of Month
-        
-        //Allow/disallow buttons
-        btnPrev.setEnabled(true);
-        btnNext.setEnabled(true);
-        if (week == 1 && year <= d.getRealYear()-10){btnPrev.setEnabled(false);} //Too early
-        if (week == 52 && year >= d.getRealYear()+100){btnNext.setEnabled(false);} //Too late
+        int nod, som;
+        btnNext_1.setEnabled(true);
+        if (week == 1 && year <= d.getRealYear()-10){btnPrev_1.setEnabled(false);} //Too early
+        if (week == 52 && year >= d.getRealYear()+100){btnNext_1.setEnabled(false);} //Too late
         lblMonth.setText(weeks[week]); //Refresh the month label (at the top)
         lblMonth.setBounds(380-lblMonth.getPreferredSize().width/2, 25, 180, 25); //Re-align label with calendar
         cmbYear.setSelectedItem(String.valueOf(year)); //Select the correct year in the combo box
