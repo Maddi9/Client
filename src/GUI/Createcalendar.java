@@ -36,7 +36,6 @@ public class Createcalendar extends JPanel {
 		add(btnCreateCalendar);
 		
 		txtName = new JTextField();
-		txtName.setText("Name");
 		txtName.setBounds(184, 79, 86, 20);
 		add(txtName);
 		txtName.setColumns(10);

@@ -116,23 +116,23 @@ public class Logic {
 //					e1.printStackTrace();
 //				}
 
-//				String email = screen.getLogin().getUsernameTextField().getText();
-//				String password = screen.getLogin().getPasswordTextField_1().getText();
-//				
-//				L.setEmail(email);
-//				L.setPassword(password);
-//
-//				String JsonString=tcp.bla(L);
-//
-//				LoginAnswer LA = gson.fromJson(JsonString, LoginAnswer.class);  
-//
-//				if (LA.getAnswer().equals("correct")){
-//					screen.show(Screen.MAINMENU);
-//				}
-//				if(!LA.getAnswer().equals("correct")){
-//					JOptionPane.showMessageDialog(null, "\nPlease enter a valid username & password."
-//							, "Error message",JOptionPane.PLAIN_MESSAGE);
-//				}
+				String email = screen.getLogin().getUsernameTextField().getText();
+				String password = screen.getLogin().getPasswordTextField_1().getText();
+				
+				L.setEmail(email);
+				L.setPassword(password);
+
+				String JsonString=tcp.bla(L);
+
+				LoginAnswer LA = gson.fromJson(JsonString, LoginAnswer.class);  
+
+				if (LA.getAnswer().equals("correct")){
+					screen.show(Screen.MAINMENU);
+				}
+				if(!LA.getAnswer().equals("correct")){
+					JOptionPane.showMessageDialog(null, "\nPlease enter a valid username & password."
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+				}
 			}	
 			catch(Exception e3){
 			}
